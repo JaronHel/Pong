@@ -1,0 +1,149 @@
+﻿<Window
+    x:Class="Pong.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Pong"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+    Title="Pong"
+    Width="800"
+    Height="450"
+    Background="#222222"
+    mc:Ignorable="d">
+
+    <Grid>
+        <Canvas x:Name="PlayfieldCanvas" Visibility="Hidden">
+            <Rectangle
+                x:Name="LeftPaddle"
+                Width="15"
+                Height="100"
+                Fill="White" />
+            <Rectangle
+                x:Name="RightPaddle"
+                Width="15"
+                Height="100"
+                Fill="White" />
+            <Ellipse
+                x:Name="Ball"
+                Width="20"
+                Height="20"
+                Fill="Red" />
+        </Canvas>
+
+        <StackPanel
+            x:Name="MenuPanel"
+            MinWidth="200"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Visibility="Visible">
+            <Button
+                Height="50"
+                Margin="10"
+                HorizontalAlignment="Stretch"
+                Background="White"
+                Click="StartNormal"
+                Content="Normal" />
+            <Button
+                Height="50"
+                Margin="10"
+                HorizontalAlignment="Stretch"
+                Background="White"
+                Click="StartTraining"
+                Content="Training" />
+            <Button
+                Height="50"
+                Margin="10"
+                HorizontalAlignment="Stretch"
+                Background="White"
+                Click="GoToSettings"
+                Content="Settings" />
+        </StackPanel>
+
+        <StackPanel
+            x:Name="SettingsPanel"
+            MinWidth="200"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Visibility="Hidden">
+
+            <Grid Margin="10" HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label
+                    Grid.Column="0"
+                    Height="30"
+                    Margin="0,0,10,0"
+                    VerticalContentAlignment="Center"
+                    Content="Background Color"
+                    Foreground="White" />
+                <xctk:ColorPicker
+                    x:Name="BackgroundColorPicker"
+                    Grid.Column="1"
+                    Height="30" />
+            </Grid>
+
+            <Grid Margin="10" HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label
+                    Grid.Column="0"
+                    Height="30"
+                    Margin="0,0,10,0"
+                    VerticalContentAlignment="Center"
+                    Content="Ball Color"
+                    Foreground="White" />
+                <xctk:ColorPicker
+                    x:Name="BallColorPicker"
+                    Grid.Column="1"
+                    Height="30" />
+            </Grid>
+
+            <Grid Margin="10" HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label
+                    Grid.Column="0"
+                    Height="30"
+                    Margin="0,0,10,0"
+                    VerticalContentAlignment="Center"
+                    Content="Paddle Color"
+                    Foreground="White" />
+                <xctk:ColorPicker
+                    x:Name="PaddleColorPicker"
+                    Grid.Column="1"
+                    Height="30" />
+            </Grid>
+
+            <Button
+                Height="50"
+                Margin="10"
+                HorizontalAlignment="Stretch"
+                Click="GoToMenu"
+                Content="Back" />
+        </StackPanel>
+
+        <Label
+            x:Name="Counter"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="80"
+            Foreground="Green"
+            Visibility="Hidden" />
+        <Label
+            x:Name="EndScreen"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Content="Game Over"
+            FontSize="80"
+            Foreground="Green"
+            Visibility="Hidden" />
+    </Grid>
+
+</Window>
